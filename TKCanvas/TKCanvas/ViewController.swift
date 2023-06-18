@@ -65,6 +65,23 @@ class ViewController: UIViewController {
         subContainerLayer.addSublayer(imgLayer)
     }
     
+    
+    @IBAction func imageZoomInAndOut(_ sender: UISlider) {
+        
+        let value = CGFloat(sender.value)
+        let width = subContainerLayer.bounds.size.width / value
+        let height = subContainerLayer.bounds.size.height / value
+        
+        let xOffset = (subContainerLayer.bounds.size.width - width) / 2
+        let yOffset = (subContainerLayer.bounds.size.height - height) / 2
+        
+        print("width = \(width)  height = \(height)")
+        UIView.animate(withDuration: 0.3, delay: 0.1) {
+            self.imgLayer.frame = CGRect(x: xOffset, y: yOffset, width: width, height: height)
+            self.imgLayer.layoutIfNeeded()
+        }
+    }
+    
 }
 
 

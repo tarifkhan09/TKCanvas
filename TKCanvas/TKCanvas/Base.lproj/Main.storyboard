@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2fZ-JO-gGa">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -20,8 +21,11 @@
                                 <rect key="frame" x="0.0" y="668" width="393" height="150"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QzU-qD-CBT">
-                                        <rect key="frame" x="0.0" y="30" width="393" height="90"/>
+                                        <rect key="frame" x="0.0" y="60" width="393" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="myG-iD-cli"/>
+                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cyL-Af-nNU">
                                             <size key="itemSize" width="69" height="68"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -61,13 +65,24 @@
                                             <outlet property="delegate" destination="2fZ-JO-gGa" id="e8X-kB-h7G"/>
                                         </connections>
                                     </collectionView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="TrQ-GG-2r0">
+                                        <rect key="frame" x="18" y="10" width="357" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="EE4-wj-sx4"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="imageZoomInAndOut:" destination="2fZ-JO-gGa" eventType="valueChanged" id="bCU-b5-1XS"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="QzU-qD-CBT" secondAttribute="bottom" constant="30" id="Gad-Ph-K6o"/>
-                                    <constraint firstItem="QzU-qD-CBT" firstAttribute="leading" secondItem="AZx-Gt-RsM" secondAttribute="leading" id="PAf-Nn-A7T"/>
-                                    <constraint firstAttribute="trailing" secondItem="QzU-qD-CBT" secondAttribute="trailing" id="csf-WD-Oda"/>
-                                    <constraint firstItem="QzU-qD-CBT" firstAttribute="top" secondItem="AZx-Gt-RsM" secondAttribute="top" constant="30" id="qGg-B4-re6"/>
+                                    <constraint firstAttribute="trailing" secondItem="QzU-qD-CBT" secondAttribute="trailing" id="DSL-4t-KV6"/>
+                                    <constraint firstItem="TrQ-GG-2r0" firstAttribute="top" secondItem="AZx-Gt-RsM" secondAttribute="top" constant="10" id="LB4-Yy-7XK"/>
+                                    <constraint firstItem="TrQ-GG-2r0" firstAttribute="leading" secondItem="AZx-Gt-RsM" secondAttribute="leading" constant="20" id="YWl-gB-Zxk"/>
+                                    <constraint firstAttribute="bottom" secondItem="QzU-qD-CBT" secondAttribute="bottom" id="aFg-oi-JG6"/>
+                                    <constraint firstAttribute="trailing" secondItem="TrQ-GG-2r0" secondAttribute="trailing" constant="20" id="nqW-A7-G2V"/>
+                                    <constraint firstItem="QzU-qD-CBT" firstAttribute="leading" secondItem="AZx-Gt-RsM" secondAttribute="leading" id="qSQ-UC-wHq"/>
                                     <constraint firstAttribute="height" constant="150" id="wB0-iL-aCP"/>
                                 </constraints>
                             </view>
